@@ -1,0 +1,12 @@
+<div class="card-box" [class.flipped]="CARDSTATE.FRONT === cardState" (click)="flipCard()">
+  <div class="front">
+    <img src="assets/rieker-logo-kcm-homework.png" *ngIf="CARDSTATE.FOUND !== cardState; else found"> 
+  </div>
+  <div class="back">
+    <img src="assets/shoes/{{src}}" *ngIf="CARDSTATE.FOUND !== cardState; else found"> 
+  </div>
+</div>
+
+<ng-template #found>
+  <img src="assets/rieker-logo-kcm-homework-match.png">
+</ng-template>

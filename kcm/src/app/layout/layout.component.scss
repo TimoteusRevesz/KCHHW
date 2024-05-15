@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    background-color: #E40039;
+}
+
+.info-container {
+    background-color: white;
+    height: 900px;
+    max-height: 90%;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.layout-container {}
+
+.game-table {
+    min-height: max-content;
+}
+
+.menu-table {}

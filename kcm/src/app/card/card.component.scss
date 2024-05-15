@@ -1,0 +1,43 @@
+:host {
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+}
+
+.card-box {
+    perspective: 1000px;
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+    cursor: pointer; 
+  
+    &.flipped {
+      transform: rotateY(180deg);
+    }
+  
+    .front,
+    .back {
+      width: 100%;
+      height: 150px;
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0; 
+      border-radius: 15px; 
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px; 
+      }
+    }
+  
+    .front { 
+      overflow: hidden; 
+    }
+  
+    .back {
+      /* Stílus a kártya hátoldalához */ 
+      transform: rotateY(180deg);
+    }
+  }
+  

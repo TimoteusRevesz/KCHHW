@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+}
+
+.info-container {
+    background-color: white; 
+    min-height: max-content;
+    max-height: 90%; 
+    width: 100%;
+    max-width: 95%;
+    padding: 30px;
+    border-radius: 15px;
+}

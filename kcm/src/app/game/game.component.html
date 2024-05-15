@@ -1,0 +1,3 @@
+<div class="d-flex flex-wrap gap-1 justify-content-center">
+    <app-card [src]="card.src" *ngFor="let card of cardList" (cardFlipped)="cardFlippedEvent($event)"></app-card>
+</div>
