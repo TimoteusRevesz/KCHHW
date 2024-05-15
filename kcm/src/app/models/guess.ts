@@ -1,4 +1,4 @@
 export interface Guess {
-    firstGuess: string;
-    secondGuess: string;
+    firstGuess?: symbol;
+    secondGuess?: symbol;
 }

@@ -1,17 +1,15 @@
 
 <div class="d-flex m-auto gap-1 flex-wrap layout-container">
-    <div class="row col-12">
-        <div class="col-md-9 order-md-1 order-1">
+    <div class="row col-12 h-100 d-flex align-items-center justify-content-center">
+        <div class="col-md-9 order-md-1 order-1 flex-grow-1" >
             <div class="info-container game-table">
-                <h1 class="text-center">Tájékoztató</h1>
+                <h1 class="text-center ">Tájékoztató</h1>
                 <app-game></app-game>
             </div>
         </div>
-        <div class="col-md-3 order-md-2 order-2">
-            <div class="info-container">
-                <h1 class="text-center">Menü</h1>
+        <div class="col-md-3 order-md-2 order-2 flex-grow-1 menu-table mt-1" >
+            <div class="info-container"> 
                 <app-menu></app-menu>
-                <button (click)="reset()">Reset</button>
             </div>
         </div>
     </div>

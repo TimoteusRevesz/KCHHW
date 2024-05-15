@@ -13,8 +13,8 @@ import { ShoeService } from '../services/shoe.service';
 export class GameComponent {
   public cardList?: Card[];
   private guess: Guess = {
-    firstGuess: '',
-    secondGuess: ''
+    firstGuess: undefined,
+    secondGuess: undefined
   }
   
   constructor(
@@ -33,20 +33,20 @@ export class GameComponent {
     this.turnService.resetGame();
   }
 
-  public cardFlippedEvent(src: string): void {
+  public cardFlippedEvent(id: symbol): void {
     if (!this.guess.firstGuess && !this.guess.secondGuess) {
       // First Guess
-      this.guess.firstGuess = src; 
+      this.guess.firstGuess = id; 
     } else if(this.guess.firstGuess && !this.guess.secondGuess) {
       // Send Second Guess
-      this.guess.secondGuess = src;  
+      this.guess.secondGuess = id;  
     } else if(this.guess.firstGuess && this.guess.secondGuess) { 
       // Reset Cards
-      const resetSrc = this.guess.firstGuess === this.guess.secondGuess ? this.guess.firstGuess : '';
+      const resetSrc = this.guess.firstGuess === this.guess.secondGuess ? this.guess.firstGuess : undefined;
       this.turnService.resetCards(resetSrc);
       this.guess = {
-        firstGuess: src,
-        secondGuess: ''
+        firstGuess: id,
+        secondGuess: undefined
       }
     }
   }

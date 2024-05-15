@@ -8,11 +8,4 @@ import { TurnService } from '../services/turn.service';
 })
 export class LayoutComponent {
 
-  constructor(private turnService: TurnService) {
-  }
-
-  public reset(): void {
-    this.turnService.resetGame();
-  }
-
 }

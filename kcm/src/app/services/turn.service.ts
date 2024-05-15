@@ -1,26 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Guess } from '../models/guess';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TurnService {
-  private resetCard = new Subject<string>();  
+  private resetCard = new Subject<symbol>();  
+  private resetTable = new Subject<true>();  
+
+  private guessCounter = 0;
+  private guessCount = new BehaviorSubject<number>(0);  
+  
   public resetCard$ = this.resetCard.asObservable();
+  public resetTable$ = this.resetTable.asObservable();
+  public guessCount$ = this.guessCount.asObservable();
+ 
+  public resetCards(src?: symbol): void {
+    this.guessCounter++;
 
-  public guessCount: number = 0;
-
-  public resetCards(src?: string): void {
-    this.guessCount++;
-    if (this.guessCount > 0) {
-      this.resetCard.next(src ?? '');
+    if (this.guessCounter > 0) {
+      this.resetCard.next(src ?? Symbol());
+      this.guessCount.next(this.guessCounter);
     }
   }  
 
   public resetGame(): void {
-    this.resetCard.next('RESET');
-    this.guessCount = 0;
+    this.guessCounter = 0;
 
+    this.resetTable.next(true);
+    this.guessCount.next(this.guessCounter);
   }
 }
