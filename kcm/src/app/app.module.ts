@@ -9,6 +9,8 @@ import { GameComponent } from './game/game.component';
 import { CardComponent } from './card/card.component';
 import { MenuComponent } from './menu/menu.component';   
 import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MatSelectModule } from '@angular/material/select';
     BrowserModule,
     AppRoutingModule, 
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

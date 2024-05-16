@@ -37,9 +37,16 @@ export class CardComponent implements OnInit, OnDestroy {
 
     this.resetCardSubscription = this.turnService.resetCard$.subscribe(
       (id: symbol) => {
-        if (this.cardState !== CardState.FOUND) {
-          this.cardState =
-            this.card.id === id ? CardState.FOUND : CardState.BACK;
+        if (this.cardState === CardState.FOUND) {
+          // Already found
+          return;
+        } else if (this.card.id === id) {
+          // Just found
+          this.cardState = CardState.FOUND;
+          this.turnService.pairFound(this.card.id);
+        } else {
+          // No match -> Flip to back
+          this.cardState = CardState.BACK;
         }
       }
     );
@@ -59,11 +66,7 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.resetCardSubscription) {
-      this.resetCardSubscription.unsubscribe();
-    }
-    if (this.resetTableSubscription) {
-      this.resetTableSubscription.unsubscribe();
-    }
+    this.resetCardSubscription?.unsubscribe();
+    this.resetTableSubscription?.unsubscribe();
   }
 }

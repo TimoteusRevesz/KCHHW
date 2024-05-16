@@ -50,9 +50,10 @@ export class ShoeService {
 
   constructor() {}
 
-  public getAllCards(): Card[] {
-
-    return this.shuffleCards([...this.cards, ...this.cards]);
+  public getAllCards(deckSize: number = 5): Card[] {
+    const randomCards = this.getRandomElements(deckSize);
+    
+    return this.shuffleCards([...randomCards, ...randomCards]);
   }
 
   private shuffleCards(cards: Card[]): Card[] {
@@ -70,5 +71,24 @@ export class ShoeService {
     }
 
     return cards;
+  }
+
+  private getRandomElements(count: number): Card[] { 
+    if (count >= this.cards.length) {
+      return [...this.cards];
+    }
+  
+    const pickedIndices = new Set<number>();
+    const result: Card[] = [];
+  
+    while (result.length < count) {
+      const randomIndex = Math.floor(Math.random() * this.cards.length);
+      if (!pickedIndices.has(randomIndex)) {
+        pickedIndices.add(randomIndex);
+        result.push(this.cards[randomIndex]);
+      }
+    }
+  
+    return result;
   }
 }
