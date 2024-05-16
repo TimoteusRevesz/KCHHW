@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TurnService } from '../services/turn.service';
+import { TurnService } from '../../services/turn.service';
 
 @Component({
   selector: 'app-layout',

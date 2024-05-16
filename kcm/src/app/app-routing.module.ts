@@ -1,21 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './layout/layout.component'; 
+import { LayoutComponent } from './gamer/layout/layout.component'; 
 import { ShoeResolver } from './services/resolver/shoe.resolver';
 
 const routes: Routes = [ 
    
   { path: '', loadChildren: () => import('./tutorial/tutorial.module').then(m => m.TutorialModule) },
-  {
-    path: 'layout',
-    component: LayoutComponent,
-    resolve: {
-      data: ShoeResolver 
-    }
-  },{
-    path: '**',
-    component: LayoutComponent
-  }
+  { path: 'game', loadChildren: () => import('./gamer/gamer.module').then(m => m.GamerModule) },
+  { path: '**', loadChildren: () => import('./tutorial/tutorial.module').then(m => m.TutorialModule) }
 ];
 
 @NgModule({

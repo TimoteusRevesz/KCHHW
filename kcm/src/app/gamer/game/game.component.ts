@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Card } from '../models/card';
+import { Card } from '../../models/card';
 import { ActivatedRoute } from '@angular/router';
-import { TurnService } from '../services/turn.service';
-import { Guess } from '../models/guess';
-import { ShoeService } from '../services/shoe.service';
+import { TurnService } from '../../services/turn.service';
+import { Guess } from '../../models/guess';
+import { ShoeService } from '../../services/shoe.service';
 import { Subscription } from 'rxjs'; 
 
 @Component({

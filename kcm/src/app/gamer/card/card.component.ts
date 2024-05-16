@@ -6,10 +6,10 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { CardState } from '../models/enums/card-state';
-import { TurnService } from '../services/turn.service';
+import { CardState } from '../../models/enums/card-state';
+import { TurnService } from '../../services/turn.service';
 import { Subscription } from 'rxjs';
-import { Card } from '../models/card';
+import { Card } from '../../models/card';
 
 @Component({
   selector: 'app-card',

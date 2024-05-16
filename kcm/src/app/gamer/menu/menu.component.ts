@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TurnService } from '../services/turn.service';
+import { TurnService } from '../../services/turn.service';
 import { Observable } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
